@@ -6,7 +6,10 @@
       <class name="New_Project.SampleProject.TestCases">
         <methods>
           <include name="testLoginSuccessful"/>
+          <include name="testSingleUser"/>
           <include name="serSpecification"/>
+          <include name="testFetchUser"/>
+          <include name="testCreateUser"/>
         </methods>
       </class> <!-- New_Project.SampleProject.TestCases -->
     </classes>
