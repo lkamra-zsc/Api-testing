@@ -29,6 +29,9 @@ public class TestCases {
 	public void testFetchUser() {
 		ExtentReportManager.test = ExtentReportManager.reports.startTest("testFetchUser","Fetching the user details");
 		ExtentReportManager.test.log(LogStatus.INFO, "Specifying the base URI", "https://reqres.in");
+		ExtentReportManager.test.log(LogStatus.INFO, "API call","GET");
+		ExtentReportManager.test.log(LogStatus.INFO, "Resource route","api/users?delay=3");
+		ExtentReportManager.test.log(LogStatus.INFO, "Value compared","page");
 		RestAssured.baseURI = "https://reqres.in";
 		given().when().get("api/users?delay=3").then().statusCode(200);
 		
@@ -38,6 +41,10 @@ public class TestCases {
 	public void testCreateUser() {
 		ExtentReportManager.test = ExtentReportManager.reports.startTest("testCreateUser","Creating the new user");
 		ExtentReportManager.test.log(LogStatus.INFO, "Specifying the base URI", "https://reqres.in");
+		ExtentReportManager.test.log(LogStatus.INFO, "API call","POST");
+		ExtentReportManager.test.log(LogStatus.INFO, "Body passed","name=morpheus and job=leader");
+		ExtentReportManager.test.log(LogStatus.INFO, "Resource route","api/users");
+		ExtentReportManager.test.log(LogStatus.INFO, "Value compared","name");
 		RestAssured.baseURI = "https://reqres.in";
 		HashMap<String,String> params = new HashMap<String, String>();
 		params.put("name", "morpheus");
@@ -49,6 +56,9 @@ public class TestCases {
 	public void testSingleUser() {
 		ExtentReportManager.test = ExtentReportManager.reports.startTest("testSingleUser","Testing the single user");
 		ExtentReportManager.test.log(LogStatus.INFO, "Specifying the base URI", "https://reqres.in");
+		ExtentReportManager.test.log(LogStatus.INFO, "API call","GET");
+		ExtentReportManager.test.log(LogStatus.INFO, "Resource route","api/users/2");
+		ExtentReportManager.test.log(LogStatus.INFO, "Value compared","page");
 		RestAssured.baseURI = "https://reqres.in";
 		given().when().get("api/users/2").then().statusCode(200);
 	}
@@ -57,6 +67,10 @@ public class TestCases {
 	public void testLoginSuccessful() {
 		ExtentReportManager.test = ExtentReportManager.reports.startTest("testLoginSuccessful","testing whether the login is successful or not");
 		ExtentReportManager.test.log(LogStatus.INFO, "Specifying the base URI", "https://reqres.in");
+		ExtentReportManager.test.log(LogStatus.INFO, "API call","POST");
+		ExtentReportManager.test.log(LogStatus.INFO, "Body passed","email=eve.holt@reqres.in and password=cityslicka");
+		ExtentReportManager.test.log(LogStatus.INFO, "Resource route","api/login");
+		ExtentReportManager.test.log(LogStatus.INFO, "Value compared","name");
 		HashMap<String,String> params = new HashMap<String, String>();
 		params.put("email", "eve.holt@reqres.in");
 		params.put("password", "cityslicka");
@@ -66,5 +80,6 @@ public class TestCases {
 	@AfterClass
 	public void closeReport() {
 		ExtentReportManager.reports.flush();
+		ExtentReportManager.reports.close();
 	}
 }
