@@ -25,9 +25,9 @@ public class TestCases {
 		
 	}
 	
-	@Test
+	@Test(description="Fetching the users", testName = "testFetchUser")
 	public void testFetchUser() {
-		ExtentReportManager.test = ExtentReportManager.reports.startTest("testFetchUser","Fetching the user details");
+		ExtentReportManager.test = ExtentReportManager.getTest();
 		ExtentReportManager.test.log(LogStatus.INFO, "Specifying the base URI", "https://reqres.in");
 		ExtentReportManager.test.log(LogStatus.INFO, "API call","GET");
 		ExtentReportManager.test.log(LogStatus.INFO, "Resource route","api/users?delay=3");
@@ -37,9 +37,9 @@ public class TestCases {
 		
 	}
 	
-	@Test
+	@Test(description = "Creating the user", testName = "testCreateUser")
 	public void testCreateUser() {
-		ExtentReportManager.test = ExtentReportManager.reports.startTest("testCreateUser","Creating the new user");
+		ExtentReportManager.test = ExtentReportManager.getTest();
 		ExtentReportManager.test.log(LogStatus.INFO, "Specifying the base URI", "https://reqres.in");
 		ExtentReportManager.test.log(LogStatus.INFO, "API call","POST");
 		ExtentReportManager.test.log(LogStatus.INFO, "Body passed","name=morpheus and job=leader");
@@ -52,9 +52,9 @@ public class TestCases {
 		given().when().contentType("application/json").body(params).post("api/users").then().statusCode(201);
 	}
 	
-	@Test
+	@Test(description = "Testing the single user", testName = "testSingleUser")
 	public void testSingleUser() {
-		ExtentReportManager.test = ExtentReportManager.reports.startTest("testSingleUser","Testing the single user");
+		ExtentReportManager.test = ExtentReportManager.getTest();
 		ExtentReportManager.test.log(LogStatus.INFO, "Specifying the base URI", "https://reqres.in");
 		ExtentReportManager.test.log(LogStatus.INFO, "API call","GET");
 		ExtentReportManager.test.log(LogStatus.INFO, "Resource route","api/users/2");
@@ -63,9 +63,9 @@ public class TestCases {
 		given().when().get("api/users/2").then().statusCode(200);
 	}
 	
-	@Test
+	@Test(description = "testing whether the login is successful or not", testName = "testLoginSuccessful")
 	public void testLoginSuccessful() {
-		ExtentReportManager.test = ExtentReportManager.reports.startTest("testLoginSuccessful","testing whether the login is successful or not");
+		ExtentReportManager.test = ExtentReportManager.getTest();
 		ExtentReportManager.test.log(LogStatus.INFO, "Specifying the base URI", "https://reqres.in");
 		ExtentReportManager.test.log(LogStatus.INFO, "API call","POST");
 		ExtentReportManager.test.log(LogStatus.INFO, "Body passed","email=eve.holt@reqres.in and password=cityslicka");
