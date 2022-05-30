@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Test Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="New_Project.Project_Assignment.TestListener"/>
+  </listeners>
+  <test thread-count="5" name="Demo API Tests(failed)">
+    <classes>
+      <class name="New_Project.Project_Assignment.TestCases">
+        <methods>
+          <include name="serSpecification"/>
+          <include name="testGetBooking"/>
+        </methods>
+      </class> <!-- New_Project.Project_Assignment.TestCases -->
+    </classes>
+  </test> <!-- Demo API Tests(failed) -->
+</suite> <!-- Failed suite [Test Suite] -->
